@@ -1,0 +1,14 @@
+{
+	"name": "trevtastic",
+	"version": "1.0.0",
+	"description": "11ty default profile site",
+	"scripts": {
+		"start": "npx @11ty/eleventy --serve",
+		"build": "npx @11ty/eleventy"
+	},
+	"author": "Trevor Chigonda",
+	"license": "ISC",
+	"devDependencies": {
+		"@11ty/eleventy": "^1.0.0"
+	}
+}

@@ -1,0 +1,57 @@
+# Compiled source #
+###################
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+.sass-cache
+
+# Packages #
+############
+# it's better to unpack these files and commit the raw source
+# git has its own built in compression methods
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# Logs and databases #
+######################
+*.log
+#*.sql
+*.sqlite
+
+# OS generated files #
+######################
+._*
+.DS_Store
+.DS_Store?
+.Spotlight-V100
+.tmp
+.Trashes
+composer.lock
+ehthumbs.db
+package-lock.json
+Thumbs.db
+
+# Program files #
+####################
+*.psd
+*.afphoto
+*.ai
+
+# Folders #
+####################
+/.vscode/
+/_notes/
+/application/cache/views/*/*/
+/logs/
+/node_modules/
+/sessions/
+/vendor/
