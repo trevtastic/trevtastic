@@ -14,12 +14,15 @@ module.exports = function ( eleventyConfig ) {
 
 			preRegex  = /^(?:http[s]*:\/\/|mailto:|\/|#).+$/i;
 			postRegex = /(?:index)*\.m(?:d|md|kd|arkdown)$/;
+			imgRegex  = /[\w.-]+(?:jpg|png|gif|svg|webp)$/i;
 
-			if ( preRegex.test( link ) ) {
+			if ( preRegex.test( link ) ) { // resolve absolute links
 				return link; // do nothing
-			} else if ( postRegex.test( link ) ) {
+			} else if ( postRegex.test( link ) ) { // resolve markdown file links
 				link = '/' + link.replace( postRegex, '' ); // + env.page.outputFileExtension
-			} else {
+			} else if ( match = link.match( imgRegex ) ) { // resolve images and icons
+				link = '/assets/img/content/' + match[ 0 ];
+			} else { // fallback
 				link = '/' + link;
 			}
 
@@ -38,7 +41,7 @@ module.exports = function ( eleventyConfig ) {
 	);
 
 	// set 11ty config and register plugins
-	eleventyConfig.addPassthroughCopy( { 'src/assets/img': 'assets/img' } );
+	eleventyConfig.addPassthroughCopy( { 'src/content/assets/img': 'assets/img/content' } );
 	eleventyConfig.setLibrary( 'md', markdownLib );
 
 	// return config
@@ -48,7 +51,8 @@ module.exports = function ( eleventyConfig ) {
 			output:  'docs',
 			layouts: '_layouts'
 		},
-		markdownTemplateEngine: 'njk'
+		markdownTemplateEngine: 'njk',
+		// pathPrefix: '/folder'
 	};
 
 };
